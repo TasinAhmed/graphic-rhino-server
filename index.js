@@ -53,8 +53,8 @@ app.post("/contact", async (req, res) => {
     await transporter.sendMail({
       from: { name: "Graphic Rhino", address: email },
       replyTo: email,
-      to: "atasin1998@gmail.com",
-      //   to: "hello@graphicrhino.be",
+      //   to: "atasin1998@gmail.com",
+      to: "hello@graphicrhino.be",
       subject: `Contact form submission from ${name}`,
       html: `<p>Hello Tasin Ahmed,</p>
         <p>You have a new message from ${name}</p>
