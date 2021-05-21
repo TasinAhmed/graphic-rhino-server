@@ -33,9 +33,9 @@ app.post("/contact", async (req, res) => {
     const { name, email, phone, message } = req.body;
 
     if (!(name && email && message)) {
-      return res.status(400).send("Please fill the required fields!");
+      return res.status(400).send("Gelieve het verplichte veld in te vullen!");
     } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-      return res.status(400).send("Invalid email address! Please try again!");
+      return res.status(400).send("Ongeldig e-mailadres, probeer het opnieuw!");
     }
 
     const transporter = nodemailer.createTransport({
@@ -63,10 +63,10 @@ app.post("/contact", async (req, res) => {
         <p>Sent from <a href="mailto:${email}">${email}</a></p>`,
     });
 
-    res.send("Message sent successfully! We will get back to you soon!");
+    res.send("Bericht verzonden, we zullen snel contact met u opnemen!");
   } catch (error) {
     console.log(error.message);
-    res.status(400).send("Unable to send! Please try again!");
+    res.status(400).send("Verzenden mislukt, probeer het later opnieuw!");
   }
 });
 
